@@ -1,5 +1,5 @@
 # CPPRPG
 
-A C++ Console-Based RPG, written in C++.
+A C++ Console-Based RPG, created by Sean O. Wiik, 20-05-2019.
 
-20-05-2019, Sean O. Wiik.
+You're free to copy this as you want, but if you make something cool using this, send me a link. ^^

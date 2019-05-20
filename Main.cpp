@@ -11,14 +11,18 @@ void Moving();
 void CreateMonster();
 void LevelUp();
 
+//Available special races & names.
 std::string name = " ", race = " ", sex = " ";
 std::string playerRace[] = { "elf", "dwarf", "human", "ancient", "golem", "goblin" };
 std:: string playerName[] = { "guts", "saitama", "mikkel" };
+
+//Basic stats, feel free to add more, but don't change the values, change them in main.
 int level = 0, XP = 0, health = 0, totalHealth = 0, maxHealth = 0, nextLevel = 0, heal = 0;
 int monsterHP = 0;
 int monsterXP = 0;
 int monsterLevel = 0;
 
+//Monster names, int amount.
 std::string monsterName[] = { "Goblin", "Spider", "Troll", "Witch", "Demon", "Wizard" };
 int currentMonsterNames = 5;
 std::string currentMonster = " ";
