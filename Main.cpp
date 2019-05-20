@@ -75,6 +75,14 @@ int main()
 
             }
 
+        if (name == "lasse")
+            {
+
+                name = "Spaghetti kode er min livret";
+                break;
+
+            }
+
         else
         {
 
