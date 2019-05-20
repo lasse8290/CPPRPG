@@ -13,6 +13,7 @@ void LevelUp();
 
 std::string name = " ", race = " ", sex = " ";
 std::string playerRace[] = { "elf", "dwarf", "human", "ancient", "golem", "goblin" };
+std:: string playerName[] = { "guts", "saitama", "mikkel" };
 int level = 0, XP = 0, health = 0, totalHealth = 0, maxHealth = 0, nextLevel = 0, heal = 0;
 int monsterHP = 0;
 int monsterXP = 0;
@@ -35,6 +36,49 @@ int main()
     //Character Creation.
     std::cout << "Enter your Character's Name: ";
     std::cin >> name;
+
+    std::for_each(name.begin(), name.end(), [](char & c){
+
+        c = ::tolower(c);
+
+    });
+
+    //Special Names.
+    for (int i = 0; i < sizeof(playerName); i++) 
+    {
+
+        if (name == "guts")
+            {
+
+                name = "GRIFFITHHHHH!";
+                break;
+
+            }
+        
+        if (name == "saitama")
+            {
+
+                name = "ONE-PUNCH!";
+                break;
+
+            }
+
+        if (name == "mikkel")
+            {
+
+                name = "Weakling";
+                break;
+
+            }
+
+        else
+        {
+
+            break;
+
+        }
+            
+    }
 
     std::cout << "\n~ Choose a Race ~\n";
     std::cout << "Elf\n";
