@@ -1,9 +1,8 @@
 #include <iostream>
-#include <windows.h>
+#include <Windows.h>
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <SDL.h>
 
 void HUD();
 void Combat();
@@ -225,9 +224,7 @@ void HUD()
     //Our HUD for Name, Health, Race, Sex, Level.
     Sleep(500);
     system("cls");
-    std::cout << "Name: " << name << "      Health: " << totalHealth << "\nRace: " << race 
-        << "\nSex: " << sex << "\nLevel: " << level << "\nXP: " << XP << "\nTotal XP required for Level-up: " 
-        << nextLevel << std::endl;
+    std::cout << "Name: " << name << "      Health: " << totalHealth << "\nRace: " << race << "      MP: " << totalMP << "\nSex: " << sex << "\nLevel: " << level << "\nXP: " << XP << "\nTotal XP required for Level-up: " << nextLevel << std::endl;
 
     Moving();
 
@@ -238,8 +235,15 @@ void CombatHUD()
 
     Sleep(500);
     system("cls");
-    std::cout << "Name: " << name << "      |       Monster Name: " << currentMonster << "\nHealth: " << totalHealth << "       |       Monster Health: " <<
-        monsterHP << "\nLevel: " << level << "      |       Monster Level: " << monsterLevel << std::endl;
+    std::cout << "Name: " << name << "      |       Monster Name: " << currentMonster << "\nHealth: " << totalHealth << "    |       Monster Health: " <<
+        monsterHP << "\nMP: " << totalMP << "      |       Monster Level: " << monsterLevel << "\nLevel: " << level << std::endl;
+
+}
+
+void Animation()
+{
+
+    std::cout << "" << std::endl;
 
 }
 
@@ -247,9 +251,11 @@ void Combat()
 {
 
     CombatHUD();
+    Animation();
     int playerAttack;
     int playerSpell;
     int playerDamage = 8 * level / 2;
+    int playerSpellDamage = 10 * level / 2;
     int monsterAttack = 6 * monsterLevel / 2;
 
     if(totalHealth >= 1 && monsterHP > 1)
@@ -337,22 +343,78 @@ void Combat()
 
             //Spells
             std::cout << "\n";
-            std::cout << "1. Fireball - Cost 5 MP.\n";
-            std::cout << "2. Heal Spell - Cost 4 MP.\n";
+            std::cout << "8. Fireball - Cost 5 MP.\n";
+            std::cout << "9. Heal Spell - Cost 4 MP.\n";
             std::cout << "\n";
             std::cin >> playerSpell;
 
-            if(playerSpell == 1)
+            if(playerSpell == 8)
+            {
+                if (totalMP >= 5)
+                {
+                    std::cout << "You cast a Fireball!\n";
+                    totalMP -= 5;
+                    std::cout << "Attacking... you dealt " << playerSpellDamage << " Fire Damage to the " << currentMonster << ".\n" << "You now have " << totalMP << " MP left." << std::endl;
+                    monsterHP = monsterHP - playerSpellDamage;
+                    Sleep(1500);
+                    CombatHUD();
+                    if (monsterHP >= 1)
+                    {
+
+                        std::cout << "\n";
+                        std::cout << "Monster is Attacking...\n";
+                        totalHealth = totalHealth - monsterAttack;
+                        std::cout << "You lose " << monsterAttack << " HP. Your total HP is " << totalHealth << " points." << std::endl;
+                        if (totalHealth <= 0)
+                        {
+
+                            totalHealth = 0;
+                            system("cls");
+                            std::cout << "You've Died!\n" << name << ", lvl " << level << ", was slain by a " << currentMonster << std::endl;
+                            Sleep(2500);
+                            exit(0);
+
+                        }
+                    }
+                    else if (monsterHP <= 0)
+                    {
+
+                        monsterHP = 0;
+                        LevelUp();
+                        std::cout << "\n";
+                        std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << "XP!\nWell Done.\n";
+                        Sleep(1500);
+                        HUD();
+
+                    }
+
+                    Sleep(1500);
+                    Combat();
+                }  
+                else if (totalMP <= 4)
+                {
+                    std::cout << "The Spell requires 5 MP. \nYou only have " << totalMP << " MP.";
+                    Sleep(2000);
+                    Combat();
+                }
+                else
+                {
+                    std::cout << "Invalid number, try again.";
+                    Sleep(500);
+                    Combat();
+                }
+
+            }
+            else if(playerSpell == 9)
             {
 
 
 
             }
-            else if(playerSpell == 2)
+            else
             {
-
-
-
+                std::cout << "lol";
+                exit(1);
             }
 
         }
