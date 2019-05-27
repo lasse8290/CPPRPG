@@ -17,7 +17,7 @@ std::string playerRace[] = { "elf", "dwarf", "human", "ancient", "golem", "gobli
 std:: string playerName[] = { "guts", "saitama", "mikkel" };
 
 //Basic stats, feel free to add more, but don't change the values, change them in main.
-int level = 0, XP = 0, health = 0, totalHealth = 0, maxHealth = 0, nextLevel = 0, heal = 0;
+int level = 0, XP = 0, health = 0, totalHealth = 0, maxHealth = 0, nextLevel = 0, heal = 0, MP = 0, healMP = 0, totalMP = 0, maxMP = 0;
 int monsterHP = 0;
 int monsterXP = 0;
 int monsterLevel = 0;
@@ -116,6 +116,7 @@ int main()
             {
 
                 health = 105;
+                MP = 40;
                 break;
 
             }
@@ -124,6 +125,7 @@ int main()
             {
 
                 health = 75;
+                MP = 25;
                 break;
 
             }
@@ -132,6 +134,7 @@ int main()
             {
 
                 health = 100;
+                MP = 20;
                 break;
 
             }
@@ -140,6 +143,7 @@ int main()
             {
 
                 health = 110;
+                MP = 15;
                 break;
 
             }
@@ -148,6 +152,7 @@ int main()
             {
 
                 health = 125;
+                MP = 10;
                 break;
 
             }
@@ -156,6 +161,7 @@ int main()
             {
 
                 health = 60;
+                MP = 8;
                 break;
 
             }
@@ -164,6 +170,7 @@ int main()
         {
 
             health = 100;
+            MP = 25;
             break;
 
         }
@@ -200,6 +207,8 @@ int main()
 
     totalHealth = health;
     maxHealth = totalHealth;
+    totalMP = MP;
+    maxMP = totalMP;
 
     HUD();
     Moving();
@@ -329,7 +338,6 @@ void Combat()
             std::cout << "\n";
             std::cout << "1. Fireball - Cost 5 MP.\n";
             std::cout << "2. Heal Spell - Cost 4 MP.\n";
-            std::cout << "3. Back.";
             std::cout << "\n";
             std::cin >> playerSpell;
 
@@ -344,18 +352,6 @@ void Combat()
 
 
 
-            }
-            else if(playerSpell ==3)
-            {
-
-
-
-            }
-            else
-            {
-
-
-                
             }
 
         }
