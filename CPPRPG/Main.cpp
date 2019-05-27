@@ -255,7 +255,7 @@ void Combat()
     int playerAttack;
     int playerSpell;
     int playerDamage = 8 * level / 2;
-    int playerSpellDamage = 10 * level / 2;
+    int playerSpellDamage = 11 * level / 1.1;
     int monsterAttack = 6 * monsterLevel / 2;
 
     if(totalHealth >= 1 && monsterHP > 1)
@@ -350,10 +350,10 @@ void Combat()
 
             if(playerSpell == 8)
             {
-                if (totalMP >= 5)
+                if (totalMP >= 8)
                 {
                     std::cout << "You cast a Fireball!\n";
-                    totalMP -= 5;
+                    totalMP -= 8;
                     std::cout << "Attacking... you dealt " << playerSpellDamage << " Fire Damage to the " << currentMonster << ".\n" << "You now have " << totalMP << " MP left." << std::endl;
                     monsterHP = monsterHP - playerSpellDamage;
                     Sleep(1500);
@@ -393,7 +393,7 @@ void Combat()
                 }  
                 else if (totalMP <= 4)
                 {
-                    std::cout << "The Spell requires 5 MP. \nYou only have " << totalMP << " MP.";
+                    std::cout << "The Spell requires 8 MP. \nYou only have " << totalMP << " MP.";
                     Sleep(2000);
                     Combat();
                 }
