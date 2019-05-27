@@ -3,7 +3,7 @@
 #include <string>
 #include <algorithm>
 #include <vector>
-#include "SDL2-2.0.9\include"
+#include <SDL.h>
 
 void HUD();
 void Combat();

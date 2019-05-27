@@ -12,8 +12,10 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-I G:/Programs/SDL2-2.0.9/include",
-                "-L G:/Programs/SDL2-2.0.9/lib/x64", 
+                "-ID:\\Programs\\SDL2-2.0.9\\include",
+                "-LD:Programs\\SDL2-2.0.9\\lib\\x64",
+                "-lSDL2main","-lSDL2", "-lopengl32",
+                "test-sdl"
             ],
             "options": {
                 "cwd": "C:\\MinGW\\bin"

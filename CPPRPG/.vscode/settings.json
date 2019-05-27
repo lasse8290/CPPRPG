@@ -2,6 +2,7 @@
     "files.associations": {
         "ostream": "cpp",
         "algorithm": "cpp",
+        "SDL": "cpp",
         "cmath": "cpp",
         "cstddef": "cpp",
         "cstdint": "cpp",
