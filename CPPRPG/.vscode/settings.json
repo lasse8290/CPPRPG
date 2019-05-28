@@ -8,6 +8,7 @@
         "cstdint": "cpp",
         "cstdio": "cpp",
         "cstdlib": "cpp",
+        "GLFW": "cpp",
         "cstring": "cpp",
         "cwchar": "cpp",
         "exception": "cpp",

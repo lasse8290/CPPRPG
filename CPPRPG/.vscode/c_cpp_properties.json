@@ -21,6 +21,7 @@
                 "path": [
 
                     "G:\\Programs\\SDL2-2.0.9\\include",
+                    "G:\\Programs\\GLFW\\include\\GLFW",
 
                     "${workspaceFolder}/**"
                 ]
