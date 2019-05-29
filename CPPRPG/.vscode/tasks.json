@@ -13,7 +13,7 @@
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-ID:\\Programs\\SDL2-2.0.9\\include",
-                "-ID:\\Programs\\GLFW\\include\\GLFW",
+                "-ID:\\Programs\\GLFW\\include",
                 "-LD:Programs\\SDL2-2.0.9\\lib\\x64",
                 "-LD:Programs\\GLFW",
                 "-lSDL2main",

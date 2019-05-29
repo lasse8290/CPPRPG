@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <Windows.h>
 #include <string>
 #include <algorithm>
@@ -36,6 +37,9 @@ int main()
     level = 1;
     XP = 0;
     nextLevel = 76;
+    std::ofstream log("logfile.txt", std::ofstream::out | std::ofstream::app);
+
+
 
     //Character Creation.
     std::cout << "Enter your Character's Name: ";
@@ -91,6 +95,8 @@ int main()
         }
             
     }
+
+    log << "        Name: " << name << ". ";
 
     std::cout << "\n~ Choose a Race ~\n";
     std::cout << "Elf\n";
@@ -177,10 +183,14 @@ int main()
             
     }
 
+    log << "Race: " << race << ". ";
+
     std::cout << "\n";
     std::cout << "Enter your Character's Sex: ";
     std::cin >> sex;
     system("cls");
+
+    log << "Sex: " << sex << "\n";
 
     //Scam Loading Screen xd.  
     for (int i = 0; i < counter; i++)
@@ -204,6 +214,8 @@ int main()
     name[0] = toupper(name[0]);
     race[0] = toupper(race[0]);
     sex[0] = toupper(sex[0]);
+
+    log.close();
 
     totalHealth = health;
     maxHealth = totalHealth;
