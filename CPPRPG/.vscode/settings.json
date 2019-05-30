@@ -40,6 +40,16 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xutility": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "array": "cpp",
+        "*.tcc": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "functional": "cpp",
+        "numeric": "cpp",
+        "sstream": "cpp"
     }
 }

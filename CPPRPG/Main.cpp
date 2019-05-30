@@ -170,8 +170,8 @@ void Combat()
 
             //Spells
             std::cout << "\n";
-            std::cout << "8. Fireball - Cost 5 MP.\n";
-            std::cout << "9. Heal Spell - Cost 4 MP.\n";
+            std::cout << "8. Fireball - Cost 8 MP.\n";
+            std::cout << "9. Heal Spell - Cost 5 MP.\n";
             std::cout << "\n";
             std::cin >> playerSpell;
 
@@ -234,14 +234,56 @@ void Combat()
             }
             else if(playerSpell == 9)
             {
+                if (character.totalHealth >= 99)
+                {
 
+                    std::cout << "You can't heal anymore." << std::endl;
+                    Sleep(1500);
+                    Combat();
 
+                }
+                else if (character.totalMP >= 5)
+                {
+
+                    std::cout << "You cast a Healing Spell!\n";
+                    character.heal = character.level * 13 / 1.5;
+                    if(character.totalHealth <= 99)
+                    {
+
+                        std::cout << "You have been Healed for " << character.heal << " HP." << std::endl;
+                        character.totalHealth += character.heal;
+
+                    }
+
+                    Sleep(1500);
+                    Combat();
+                
+                }
+                else if (character.totalMP <= 4)
+                {
+
+                    std::cout << "The Spell requires 5 MP. \nYou only have " << character.totalMP << " MP.";
+                    Sleep(2000);
+                    Combat();
+
+                }
+                else
+                {
+
+                    std::cout << "Invalid number, try again.";
+                    Sleep(500);
+                    Combat();
+
+                }              
 
             }
             else
             {
-                std::cout << "lol";
-                exit(1);
+
+                std::cout << "Invalid number, try again.";
+                Sleep(500);
+                Combat();
+
             }
 
         }
