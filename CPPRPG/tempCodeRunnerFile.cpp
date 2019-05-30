@@ -1,8 +1,6 @@
 #include "Header.h"
 #include "Character.h"
 
-// cd "d:\CPP\txtAdv\CPPRPG\CPPRPG\" && g++ -std=c++11 Main.cpp Character.cpp -o Main && "d:\CPP\txtAdv\CPPRPG\CPPRPG\"Main
-
 void HUD();
 void Combat();
 void CombatHUD();
@@ -20,7 +18,7 @@ std::string monsterName[] = { "Goblin", "Spider", "Troll", "Witch", "Demon", "Wi
 int currentMonsterNames = 5;
 std::string currentMonster = " ";
 
-int counter = 3;
+int counter = 0;
 
 Character character;
 
