@@ -43,7 +43,7 @@ void HUD()
     //Our HUD for Name, Health, Race, Sex, Level.
     Sleep(500);
     system("cls");
-    std::cout << "Name: " << character.name << "      Health: " << character.totalHealth << "\nRace: " << character.race << "      MP: " << character.totalMP << "\nSex: " << character.sex << "\nLevel: " << character.level << "\nXP: " << character.XP << "\nTotal XP required for Level-up: " << character.nextLevel << std::endl;
+    std::cout << "Name: " << character.name << "      Health: " << character.totalHealth << "\nRace: " << character.race << "      MP: " << character.totalMP << "\nSex: " << character.sex << "\nLevel: " << character.level << "\nXP: " << character.current_XP << "\nTotal XP required for Level-up: " << character.XP_to_level << std::endl;
 
     Moving();
 
@@ -117,9 +117,17 @@ void Combat()
             {
 
                 monsterHP = 0;
-                LevelUp();
                 std::cout << "\n";
                 std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << "XP!\nWell Done.\n";
+                
+                if(character.level != character.maxLevel)
+                {
+
+                    character.current_XP += monsterXP;
+                    LevelUp();
+
+                }
+
                 Sleep(1500);
                 HUD();
 
@@ -362,21 +370,35 @@ void Moving()
 void LevelUp()
 {
 
-    character.XP = character.XP + monsterXP;
-
-    if(character.XP >= character.nextLevel)
+    if(character.current_XP >= character.XP_to_level)
     {
 
-        character.level++;
-        character.nextLevel = character.nextLevel * 3 / 2;
-        character.totalHealth = character.totalHealth + 20;
+        character.XP_to_level += floor(character.level + 25 * pow(2, character.level / 7));
+        character.totalHealth = floor(character.totalHealth + 13 * pow(2, character.level / 8));
+
+        if(character.level >= character.minLevel && character.level <= character.maxLevel)
+        {
+
+            character.level++;
+
+        }
+        else
+        {
+
+            character.level = 60;
+
+        }
+
         character.maxHealth = character.totalHealth;
         std::cout << "You've leveled-up! You are now Level " << character.level << "." << std::endl;
-        std::cout << "Your total health has increased by 20 Points! Total max health is " << character.totalHealth << "." << std::endl;
-        Sleep(2500);
-        HUD();
+        std::cout << "Your total health has increased by 20 Points! Total max health is now " << character.totalHealth << ".\n" << std::endl;
+        Sleep(3000);
+        LevelUp();
 
     }
+
+    Sleep(2000);
+    HUD();
 
 }
 

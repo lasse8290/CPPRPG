@@ -9,7 +9,9 @@ Character::Character()
     playerRace = { "elf", "dwarf", "human", "ancient", "golem", "goblin" };
     playerName = { "guts", "saitama", "mikkel" };
 
-    int level = 0, XP = 0, health = 0, totalHealth = 0, maxHealth = 0, nextLevel = 0, heal = 0, MP = 0, healMP = 0, totalMP = 0, maxMP = 0;
+    level = 0, health = 0, totalHealth = 0, maxHealth = 0, heal = 0, MP = 0, healMP = 0, totalMP = 0, maxMP = 0;
+
+    level = 1, current_XP = 0, base_XP = 83, XP_to_level = base_XP, minLevel = 1, maxLevel = 60;
 
 }
 
@@ -19,9 +21,6 @@ void Character::characterCreation()
     int counter = 3;
 
     //Initialization
-    level = 1;
-    XP = 0;
-    nextLevel = 76;
     std::ofstream log("logfile.txt", std::ofstream::out | std::ofstream::app);
 
 

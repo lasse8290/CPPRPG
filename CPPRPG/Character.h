@@ -15,7 +15,8 @@ class Character
         std::vector<std::string> playerName;
 
         //Basic stats.
-        int level, XP, health, totalHealth, maxHealth, nextLevel, heal, MP, healMP, totalMP, maxMP;
+        int health, totalHealth, maxHealth, heal, MP, healMP, totalMP, maxMP;
+        int level, current_XP, base_XP, XP_to_level, minLevel, maxLevel;
 
         void characterCreation();
 
