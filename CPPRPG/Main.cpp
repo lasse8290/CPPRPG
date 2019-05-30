@@ -9,11 +9,14 @@ void CombatHUD();
 void Animation();
 void Moving();
 void CreateMonster();
+void CreateTreasure();
 void LevelUp();
 
 int monsterHP = 0;
 int monsterXP = 0;
 int monsterLevel = 0;
+
+int treasureXP = 0;
 
 //Monster names, int amount.
 std::string monsterName[] = { "Goblin", "Spider", "Troll", "Witch", "Demon", "Wizard" };
@@ -93,7 +96,7 @@ void Combat()
             //Attack
             std::cout << "Attacking... you dealt " << playerDamage << " Damage to the " << currentMonster << "." << std::endl;
             monsterHP = monsterHP - playerDamage;
-            Sleep(1500);
+            Sleep(2500);
             CombatHUD();
             if (monsterHP >= 1)
             {
@@ -108,7 +111,7 @@ void Combat()
                     character.totalHealth = 0;
                     system("cls");
                     std::cout << "You've Died!\n" << character.name << ", lvl " << character.level << ", was slain by a " << currentMonster << std::endl;
-                    Sleep(2500);
+                    Sleep(3000);
                     exit(0);
 
                 }
@@ -128,12 +131,12 @@ void Combat()
 
                 }
 
-                Sleep(1500);
+                Sleep(2000);
                 HUD();
 
             }
 
-            Sleep(1500);
+            Sleep(2000);
             Combat();
 
         }
@@ -149,7 +152,7 @@ void Combat()
                 character.heal = character.level * 10 / 2;
                 std::cout << "You have been Healed for " << character.heal << " HP." << std::endl;
                 character.totalHealth += character.heal;
-                Sleep(1500);
+                Sleep(2500);
                 Combat();
 
             }
@@ -159,7 +162,7 @@ void Combat()
                 std::cout << "You Fail to Block!\n";
                 character.totalHealth -= monsterAttack;
                 std::cout << "You lost " << monsterAttack << " HP. Your total HP is " << character.totalHealth << " points." << std::endl;
-                Sleep(1500);
+                Sleep(2500);
                 Combat();
 
             }
@@ -181,9 +184,9 @@ void Combat()
                 {
                     std::cout << "You cast a Fireball!\n";
                     character.totalMP -= 8;
-                    std::cout << "Attacking... you dealt " << playerSpellDamage << " Fire Damage to the " << currentMonster << ".\n" << "You now have " << character.totalMP << " MP left." << std::endl;
+                    std::cout << "Attacking... you dealt " << playerSpellDamage << " Fire Damage.\n" << std::endl;
                     monsterHP = monsterHP - playerSpellDamage;
-                    Sleep(1500);
+                    Sleep(3000);
                     CombatHUD();
                     if (monsterHP >= 1)
                     {
@@ -198,7 +201,7 @@ void Combat()
                             character.totalHealth = 0;
                             system("cls");
                             std::cout << "You've Died!\n" << character.name << ", lvl " << character.level << ", was slain by a " << currentMonster << std::endl;
-                            Sleep(2500);
+                            Sleep(5000);
                             exit(0);
 
                         }
@@ -207,27 +210,35 @@ void Combat()
                     {
 
                         monsterHP = 0;
-                        LevelUp();
                         std::cout << "\n";
                         std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << "XP!\nWell Done.\n";
-                        Sleep(1500);
+                
+                        if(character.level != character.maxLevel)
+                        {
+
+                            character.current_XP += monsterXP;
+                            LevelUp();
+
+                        }
+
+                        Sleep(2000);
                         HUD();
 
-                    }
+                    }       
 
-                    Sleep(1500);
+                    Sleep(2000);
                     Combat();
                 }  
                 else if (character.totalMP <= 4)
                 {
                     std::cout << "The Spell requires 8 MP. \nYou only have " << character.totalMP << " MP.";
-                    Sleep(2000);
+                    Sleep(3000);
                     Combat();
                 }
                 else
                 {
                     std::cout << "Invalid number, try again.";
-                    Sleep(500);
+                    Sleep(1500);
                     Combat();
                 }
 
@@ -238,7 +249,7 @@ void Combat()
                 {
 
                     std::cout << "You can't heal anymore." << std::endl;
-                    Sleep(1500);
+                    Sleep(3000);
                     Combat();
 
                 }
@@ -255,7 +266,7 @@ void Combat()
 
                     }
 
-                    Sleep(1500);
+                    Sleep(3000);
                     Combat();
                 
                 }
@@ -263,7 +274,7 @@ void Combat()
                 {
 
                     std::cout << "The Spell requires 5 MP. \nYou only have " << character.totalMP << " MP.";
-                    Sleep(2000);
+                    Sleep(3000);
                     Combat();
 
                 }
@@ -271,7 +282,7 @@ void Combat()
                 {
 
                     std::cout << "Invalid number, try again.";
-                    Sleep(500);
+                    Sleep(1500);
                     Combat();
 
                 }              
@@ -281,7 +292,7 @@ void Combat()
             {
 
                 std::cout << "Invalid number, try again.";
-                Sleep(500);
+                Sleep(1500);
                 Combat();
 
             }
@@ -303,10 +314,9 @@ void Combat()
             {
                 
                 std::cout << "You've failed to run!\n";
-                std::cout << "You get hit by the enemy.\n";
                 character.totalHealth -= monsterAttack + 10;
-                std::cout << "You lost " << monsterAttack + 10 << " HP. Your total HP is " << character.totalHealth << " points." << std::endl;
-                Sleep(1500);
+                std::cout << "You lose " << monsterAttack + 10 << " HP. Your total HP is " << character.totalHealth << " points." << std::endl;
+                Sleep(4000);
                 Combat();
             }
             
@@ -316,7 +326,7 @@ void Combat()
         {
 
             std::cout << "Invalid number, try again.";
-            Sleep(500);
+            Sleep(1500);
             Combat();
 
         }
@@ -342,20 +352,28 @@ void Moving()
 
         int temp = rand() % 100 + 1;
         std::cout << "You start walking Forward...\n";
-        if (temp >= 50) 
+        if (temp < 50) 
         {
             //Monster Encounter
             CreateMonster();
             std::string tempName = monsterName[rand() % currentMonsterNames];
             std::cout << "A " << tempName << " Ambushes you!\n";
             currentMonster = tempName;
-            Sleep(1000);
+            Sleep(1400);
             Combat();
 
         }
+        else if (temp > 50 && temp < 60)
+        {
+
+            CreateTreasure();
+            std::cout << "You find A Treasure Box, and you get " << treasureXP << " XP!\n" << std::endl;
+            Sleep (2500);
+            HUD();
+        }
 
         std::cout << "You find nothing of interest.\n";
-        Sleep(1000);
+        Sleep(1500);
         HUD();
 
     }
@@ -371,8 +389,15 @@ void Moving()
 
         }
 
-        std::cout << "You awake feel energized and healthy. Your HP is now " << character.totalHealth << std::endl;
-        Sleep(1000);
+        if(character.totalMP <= 50)
+        {
+
+            character.totalMP += 5 * character.level;
+
+        }
+
+        std::cout << "You awake feel energized and healthy.\n" << "You now have " << character.totalHealth << " HP and " << character.totalMP << " MP." << std::endl;
+        Sleep(3500);
         HUD();
 
     }
@@ -388,13 +413,13 @@ void Moving()
             std::string tempName = monsterName[rand() % currentMonsterNames];
             std::cout << "A " << tempName << "Ambushes you!\n";
             currentMonster = tempName;
-            Sleep(1500);
+            Sleep(2000);
             Combat();
 
         }
 
         std::cout << "You find nothing of interest.\n";
-        Sleep(1000);
+        Sleep(1500);
         HUD();
 
     }
@@ -402,7 +427,7 @@ void Moving()
     {
 
         std::cout << "Invalid Number, try again.\n";
-        Sleep(500);
+        Sleep(1000);
         Moving();
 
     }
@@ -434,7 +459,7 @@ void LevelUp()
         character.maxHealth = character.totalHealth;
         std::cout << "You've leveled-up! You are now Level " << character.level << "." << std::endl;
         std::cout << "Your total health has increased by 20 Points! Total max health is now " << character.totalHealth << ".\n" << std::endl;
-        Sleep(3000);
+        Sleep(5000);
         LevelUp();
 
     }
@@ -474,5 +499,14 @@ void CreateMonster()
     if(monsterLevel == 0)
         CreateMonster();
 
+
+}
+
+void CreateTreasure()
+{
+
+    treasureXP = character.level * (rand() % 30);
+
+    character.current_XP += treasureXP;
 
 }

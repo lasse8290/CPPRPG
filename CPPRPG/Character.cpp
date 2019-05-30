@@ -66,7 +66,7 @@ void Character::characterCreation()
         if (name == "lasse")
             {
 
-                name = "Spaghetti kode er min livret";
+                name = "Favourite Meal is Spaghetti Code";
                 break;
 
             }
