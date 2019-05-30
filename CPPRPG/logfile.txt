@@ -1,5 +1,2 @@
-        Name: ---.‘o†‘o†‘o†o‘‘. Race: -.-.-.--''''''''''o†o†‘. Sex: l‘‘o‘†
-        Name: big. Race: nigger. Sex: Male
-        Name: nigger. Race: elf. Sex: Male
-        Name: sean. Race: elf. Sex: Male
-        Name: roped. Race: kneegrows. Sex: lmao
+- Name, Race and Scores of previous characters will be saved here, and will be used later for a score system.
+
