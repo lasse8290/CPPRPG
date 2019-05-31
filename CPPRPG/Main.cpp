@@ -4,6 +4,8 @@
 // cd "d:\CPP\txtAdv\CPPRPG\CPPRPG\" && g++ -std=c++11 Main.cpp Character.cpp -o Main && "d:\CPP\txtAdv\CPPRPG\CPPRPG\"Main
 
 void HUD();
+void HUDcity();
+void City();
 void Combat();
 void CombatHUD();
 void Animation();
@@ -49,6 +51,17 @@ void HUD()
     std::cout << "Name: " << character.name << "      Health: " << character.totalHealth << "\nRace: " << character.race << "      MP: " << character.totalMP << "\nSex: " << character.sex << "\nLevel: " << character.level << "\nXP: " << character.current_XP << "\nTotal XP required for Level-up: " << character.XP_to_level << std::endl;
 
     Moving();
+
+}
+
+void HUDcity() 
+{
+    //Our HUD for Name, Health, Race, Sex, Level.
+    Sleep(500);
+    system("cls");
+    std::cout << "Name: " << character.name << "      Health: " << character.totalHealth << "\nRace: " << character.race << "      MP: " << character.totalMP << "\nSex: " << character.sex << "\nLevel: " << character.level << "\nXP: " << character.current_XP << "\nTotal XP required for Level-up: " << character.XP_to_level << std::endl;
+
+    City();
 
 }
 
@@ -341,8 +354,7 @@ void Moving()
 
     std::cout << "\n\n";
     std::cout << "1. Walk Forward.\n";
-    std::cout << "2. Rest.\n";
-    std::cout << "3. Walk Backwards.\n";
+    std::cout << "2. Walk Backwards.\n";
     std::cout << "\n\n";
 
     std::cin >> choice;
@@ -371,37 +383,21 @@ void Moving()
             Sleep (2500);
             HUD();
         }
+        else if (temp > 60 && temp < 70)
+        {
+
+            std::cout << "You find the entrance to a City, and walk inside.\n";
+            Sleep(1500);
+            HUDcity();
+
+        }
 
         std::cout << "You find nothing of interest.\n";
         Sleep(1500);
         HUD();
 
     }
-    
     else if(choice == 2)
-    {
-
-        std::cout << "You set up a camp, and rest for the evening.\n";
-        if(character.totalHealth <= 99)
-        {
-
-            character.totalHealth += 10 * character.level;
-
-        }
-
-        if(character.totalMP <= 50)
-        {
-
-            character.totalMP += 5 * character.level;
-
-        }
-
-        std::cout << "You awake feel energized and healthy.\n" << "You now have " << character.totalHealth << " HP and " << character.totalMP << " MP." << std::endl;
-        Sleep(3500);
-        HUD();
-
-    }
-    else if(choice == 3)
     {
 
         int temp = rand() % 100 + 1;
@@ -429,6 +425,67 @@ void Moving()
         std::cout << "Invalid Number, try again.\n";
         Sleep(1000);
         Moving();
+
+    }
+
+}
+
+void City()
+{
+    
+    int cityChoice;
+
+    std::cout << "\n\n";
+    std::cout << "The City of Solidan.\n";
+    std::cout << "\n";
+    std::cout << "1. Rest.\n";
+    std::cout << "2. Armor Shop.\n";
+    std::cout << "3. Weapon Shop.\n";
+    std::cout << "4. Back.\n";
+    std::cout << "\n\n";
+
+    std::cin >> cityChoice;
+
+    if (cityChoice == 1) 
+    {
+
+        std::cout << "You find a hostel, and rest for the evening.\n";
+        if(character.totalHealth <= 99)
+        {
+
+            character.totalHealth += 10 * character.level;
+
+        }
+
+        if(character.totalMP <= 50)
+        {
+
+            character.totalMP += 5 * character.level;
+
+        }
+
+        std::cout << "You feel energized and healthy.\n" << "You have " << character.totalHealth << " HP and " << character.totalMP << " MP." << std::endl;
+        Sleep(3500);
+        HUDcity();
+    }
+    if (cityChoice == 2)
+    {
+
+
+
+    }
+    if (cityChoice == 3)
+    {
+
+
+
+    }
+    if (cityChoice == 4)
+    {  
+
+        std::cout << "\nYou exit the City of Solidan.";
+        Sleep(1250);
+        HUD();
 
     }
 
