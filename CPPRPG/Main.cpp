@@ -335,6 +335,12 @@ void Combat()
 
         }
 
+    } else if (character.totalHealth >= 0) {
+        character.totalHealth = 0;
+        system("cls");
+        std::cout << "You've Died!\n" << character.name << ", lvl " << character.level << ", was slain by a " << currentMonster << std::endl;
+        Sleep(5000);
+        exit(0);
     }
 }
 

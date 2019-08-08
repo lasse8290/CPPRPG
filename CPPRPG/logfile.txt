@@ -8,4 +8,7 @@
         Name: sean. Race: elf. Sex: Male
         Name: sean. Race: elf. Sex: male
         Name: sean. Race: elf. Sex: Male
+<<<<<<< HEAD
         Name: sean. Race: elf. Sex: Human
+=======
+>>>>>>> ac80cd01f4a6d50c883dc138c8dbeeffc606256c
