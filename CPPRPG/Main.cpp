@@ -17,8 +17,10 @@ void LevelUp();
 int monsterHP = 0;
 int monsterXP = 0;
 int monsterLevel = 0;
+int monsterGold = 0;
 
 int treasureXP = 0;
+int treasureGold = 0;
 
 //Monster names, int amount.
 std::string monsterName[] = { "Goblin", "Spider", "Troll", "Witch", "Demon", "Wizard" };
@@ -48,7 +50,7 @@ void HUD()
     //Our HUD for Name, Health, Race, Sex, Level.
     Sleep(500);
     system("cls");
-    std::cout << "Name: " << character.name << "      Health: " << character.totalHealth << "\nRace: " << character.race << "      MP: " << character.totalMP << "\nSex: " << character.sex << "\nLevel: " << character.level << "\nXP: " << character.current_XP << "\nTotal XP required for Level-up: " << character.XP_to_level << std::endl;
+    std::cout << "Name: " << character.name << "      Health: " << character.totalHealth << "\nRace: " << character.race << "      MP: " << character.totalMP << "\nSex: " << character.sex << "      Gold: " << character.playerGold << "\nLevel: " << character.level << "\nXP: " << character.current_XP << "\nTotal XP required for Level-up: " << character.XP_to_level << std::endl;
 
     Moving();
 
@@ -56,10 +58,10 @@ void HUD()
 
 void HUDcity() 
 {
-    //Our HUD for Name, Health, Race, Sex, Level.
+    //Our HUD for Name, Health, Race, Sex, Level in the City.
     Sleep(500);
     system("cls");
-    std::cout << "Name: " << character.name << "      Health: " << character.totalHealth << "\nRace: " << character.race << "      MP: " << character.totalMP << "\nSex: " << character.sex << "\nLevel: " << character.level << "\nXP: " << character.current_XP << "\nTotal XP required for Level-up: " << character.XP_to_level << std::endl;
+    std::cout << "Name: " << character.name << "      Health: " << character.totalHealth << "\nRace: " << character.race << "      MP: " << character.totalMP << "\nSex: " << character.sex << "      Gold: " << character.playerGold << "\nLevel: " << character.level << "\nXP: " << character.current_XP << "\nTotal XP required for Level-up: " << character.XP_to_level << std::endl;
 
     City();
 
@@ -134,12 +136,13 @@ void Combat()
 
                 monsterHP = 0;
                 std::cout << "\n";
-                std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << "XP!\nWell Done.\n";
+                std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << "XP and " << monsterGold << "Gold!\nWell Done.\n";
                 
                 if(character.level != character.maxLevel)
                 {
 
                     character.current_XP += monsterXP;
+                    character.playerGold += monsterGold;
                     LevelUp();
 
                 }
@@ -379,7 +382,7 @@ void Moving()
         {
 
             CreateTreasure();
-            std::cout << "You find A Treasure Box, and you get " << treasureXP << " XP!\n" << std::endl;
+            std::cout << "You find A Treasure Box! \nInside of it is " << treasureXP << " XP and " << treasureGold << " Gold!\n" << std::endl;
             Sleep (2500);
             HUD();
         }
@@ -550,6 +553,7 @@ void CreateMonster()
     //}
 
     monsterXP = monsterHP;
+    monsterGold = monsterHP - 5;
 
     if(monsterHP == 0)
         CreateMonster();
@@ -563,7 +567,9 @@ void CreateTreasure()
 {
 
     treasureXP = character.level * (rand() % 30);
+    treasureGold = character.level * (rand() % 31);
 
     character.current_XP += treasureXP;
+    character.playerGold += treasureGold;
 
 }
