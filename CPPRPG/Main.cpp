@@ -34,6 +34,8 @@ Character character;
 int main()
 {
 
+    srand(time(0));
+
     character.characterCreation();
 
     HUD();
@@ -120,23 +122,13 @@ void Combat()
                 std::cout << "Monster is Attacking...\n";
                 character.totalHealth = character.totalHealth - monsterAttack;
                 std::cout << "You lose " << monsterAttack << " HP. Your total HP is " << character.totalHealth << " points." << std::endl;
-                if (character.totalHealth <= 0)
-                {
-
-                    character.totalHealth = 0;
-                    system("cls");
-                    std::cout << "You've Died!\n" << character.name << ", lvl " << character.level << ", was slain by a " << currentMonster << std::endl;
-                    Sleep(3000);
-                    exit(0);
-
-                }
             }
             else if (monsterHP <= 0)
             {
 
                 monsterHP = 0;
                 std::cout << "\n";
-                std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << "XP and " << monsterGold << "Gold!\nWell Done.\n";
+                std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << " XP and " << monsterGold << " Gold!\nWell Done.\n";
                 
                 if(character.level != character.maxLevel)
                 {
@@ -211,16 +203,6 @@ void Combat()
                         std::cout << "Monster is Attacking...\n";
                         character.totalHealth = character.totalHealth - monsterAttack;
                         std::cout << "You lose " << monsterAttack << " HP. Your total HP is " << character.totalHealth << " points." << std::endl;
-                        if (character.totalHealth <= 0)
-                        {
-
-                            character.totalHealth = 0;
-                            system("cls");
-                            std::cout << "You've Died!\n" << character.name << ", lvl " << character.level << ", was slain by a " << currentMonster << std::endl;
-                            Sleep(5000);
-                            exit(0);
-
-                        }
                     }
                     else if (monsterHP <= 0)
                     {
@@ -347,6 +329,12 @@ void Combat()
 
         }
 
+    } else if (character.totalHealth >= 0) {
+        character.totalHealth = 0;
+        system("cls");
+        std::cout << "You've Died!\n" << character.name << ", lvl " << character.level << ", was slain by a " << currentMonster << std::endl;
+        Sleep(5000);
+        exit(0);
     }
 }
 
@@ -410,7 +398,7 @@ void Moving()
             //Monster Encounter
             CreateMonster();
             std::string tempName = monsterName[rand() % currentMonsterNames];
-            std::cout << "A " << tempName << "Ambushes you!\n";
+            std::cout << "A " << tempName << " Ambushes you!\n";
             currentMonster = tempName;
             Sleep(2000);
             Combat();
