@@ -6,3 +6,6 @@
         Name: s. Race: s. Sex: s
         Name: 3. Race: 3. Sex: 2
         Name: sean. Race: elf. Sex: Male
+        Name: sean. Race: elf. Sex: male
+        Name: sean. Race: elf. Sex: Male
+        Name: sean. Race: elf. Sex: Human
