@@ -23,10 +23,10 @@ void Character::characterCreation()
     //Initialization
     std::ofstream log("logfile.txt", std::ofstream::out | std::ofstream::app);
 
-
+    system("cls");
 
     //Character Creation.
-    std::cout << "Enter your Character's Name: ";
+    std::cout << "\n~ Enter your Character's Name ~\n\n";
     std::cin >> name;
 
     std::for_each(name.begin(), name.end(), [](char & c){
@@ -82,13 +82,15 @@ void Character::characterCreation()
 
     log << "        Name: " << name << ". ";
 
-    std::cout << "\n~ Choose a Race ~\n";
+    system("cls");
+
+    std::cout << "\n~ Choose a Race ~\n\n";
     std::cout << "Elf\n";
     std::cout << "Dwarf\n";
     std::cout << "Human\n";
     std::cout << "Ancient\n";
     std::cout << "Golem\n";
-    std::cout << "Goblin\n";
+    std::cout << "Goblin\n\n";
     std::cout << "Enter a Race below: \n\n";
     std::cin >> race;
 
@@ -169,9 +171,12 @@ void Character::characterCreation()
 
     log << "Race: " << race << ". ";
 
+    system("cls");
+
     std::cout << "\n";
-    std::cout << "Enter your Character's Sex: ";
+    std::cout << "~ Enter your Character's Sex ~\n\n";
     std::cin >> sex;
+
     system("cls");
 
     log << "Sex: " << sex << "\n";
@@ -180,12 +185,12 @@ void Character::characterCreation()
     for (int i = 0; i < counter; i++)
     {
         if (i == 0)
-            std::cout << "Creating Character.\n";
+            std::cout << "\nCreating Character.";
         if (i == 1)
-            std::cout << "Creating Character..\n";
+            std::cout << "\nCreating Character..";
         if (i == 2)
         {
-            std::cout << "Creating Character...\n";
+            std::cout << "\nCreating Character...";
             break;
         }
 

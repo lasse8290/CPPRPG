@@ -1,3 +1,7 @@
 - Name, Race and Scores of previous characters will be saved here, and will be used later for a score system.
 
 
+        Name: sean. Race: elf. Sex: Male
+        Name: sean. Race: elf. Sex: Male
+        Name: sean. Race: elf. Sex: Male
+        Name: sean. Race: elf. Sex: Male
