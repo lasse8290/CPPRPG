@@ -1,14 +1,3 @@
 - Name, Race and Scores of previous characters will be saved here, and will be used later for a score system.
 
-        Name: sean. Race: goblin. Sex: Male
-        Name: s. Race: s. Sex: s
-        Name: sean. Race: elf. Sex: Male
-        Name: s. Race: s. Sex: s
-        Name: 3. Race: 3. Sex: 2
-        Name: sean. Race: elf. Sex: Male
-        Name: sean. Race: elf. Sex: male
-        Name: sean. Race: elf. Sex: Male
-<<<<<<< HEAD
-        Name: sean. Race: elf. Sex: Human
-=======
->>>>>>> ac80cd01f4a6d50c883dc138c8dbeeffc606256c
+
