@@ -469,6 +469,7 @@ void City()
     }
     if (cityChoice == 2)
     {
+      
       system("cls");
       std::cout << "\n\n";
       std::cout << "The Black Sheep's Blacksmithery.\n";
