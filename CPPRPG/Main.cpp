@@ -47,7 +47,7 @@ int main()
 
 }
 
-void HUD() 
+void HUD()
 {
     //Our HUD for Name, Health, Race, Sex, Level.
     Sleep(500);
@@ -58,7 +58,7 @@ void HUD()
 
 }
 
-void HUDcity() 
+void HUDcity()
 {
     //Our HUD for Name, Health, Race, Sex, Level in the City.
     Sleep(500);
@@ -135,7 +135,7 @@ void Combat()
                 monsterHP = 0;
                 std::cout << "\n";
                 std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << " XP and " << monsterGold << " Gold!\nWell Done.\n";
-                
+
                 if(character.level != character.maxLevel)
                 {
 
@@ -216,7 +216,7 @@ void Combat()
                         monsterHP = 0;
                         std::cout << "\n";
                         std::cout << "You've defeated the " << currentMonster << ". You've got " << monsterXP << "XP!\nWell Done.\n";
-                
+
                         if(character.level != character.maxLevel)
                         {
 
@@ -228,11 +228,11 @@ void Combat()
                         Sleep(2000);
                         HUD();
 
-                    }       
+                    }
 
                     Sleep(2000);
                     Combat();
-                }  
+                }
                 else if (character.totalMP <= 4)
                 {
                     std::cout << "The Spell requires 8 MP. \nYou only have " << character.totalMP << " MP.";
@@ -272,7 +272,7 @@ void Combat()
 
                     Sleep(3000);
                     Combat();
-                
+
                 }
                 else if (character.totalMP <= 4)
                 {
@@ -289,7 +289,7 @@ void Combat()
                     Sleep(1500);
                     Combat();
 
-                }              
+                }
 
             }
             else
@@ -316,14 +316,14 @@ void Combat()
             }
             else
             {
-                
+
                 std::cout << "You've failed to run!\n";
                 character.totalHealth -= monsterAttack + 10;
                 std::cout << "You lose " << monsterAttack + 10 << " HP. Your total HP is " << character.totalHealth << " points." << std::endl;
                 Sleep(4000);
                 Combat();
             }
-            
+
 
         }
         else
@@ -344,7 +344,7 @@ void Combat()
     }
 }
 
-void Moving() 
+void Moving()
 {
 
     int choice;
@@ -361,7 +361,7 @@ void Moving()
 
         int temp = rand() % 100 + 1;
         std::cout << "You start walking Forward...\n";
-        if (temp < 50) 
+        if (temp < 50)
         {
             //Monster Encounter
             CreateMonster();
@@ -399,7 +399,7 @@ void Moving()
 
         int temp = rand() % 100 + 1;
         std::cout << "You start walking Backwards...\n";
-        if (temp >= 50) 
+        if (temp >= 50)
         {
             //Monster Encounter
             CreateMonster();
@@ -429,8 +429,10 @@ void Moving()
 
 void City()
 {
-    
+
     int cityChoice;
+    int armorChoice;
+    int weaponChoice;
 
     std::cout << "\n\n";
     std::cout << "The City of Solidan.\n";
@@ -443,7 +445,7 @@ void City()
 
     std::cin >> cityChoice;
 
-    if (cityChoice == 1) 
+    if (cityChoice == 1)
     {
 
         std::cout << "You find a hostel, and rest for the evening.\n";
@@ -467,18 +469,70 @@ void City()
     }
     if (cityChoice == 2)
     {
+      system("cls");
+      std::cout << "\n\n";
+      std::cout << "The Black Sheep's Blacksmithery.\n";
+      std::cout << "\n";
+      std::cout << "1. Shop\n";
+      std::cout << "2. Enchant\n";
+      std::cout << "3. Repair\n";
+      std::cout << "4. Back.\n";
+      std::cout << "\n\n";
+
+      std::cin >> armorChoice;
+
+      if (armorChoice == 1)
+      {
+
+        system("cls");
+        std::cout << "\n\n";
+        std::cout << "The Black Sheep's Blacksmithery.\n";
+        std::cout << "\n";
+        std::cout << "1. Chestplates.\n";
+        std::cout << "2. Shields.\n";
+        std::cout << "3 Back.";
+        std::cout << "\n\n";
+
+        std::cin >> armorChoice;
+
+      }
+      if (armorChoice == 2)
+      {
 
 
 
+      }
+      if (armorChoice == 3)
+      {
+
+
+
+      }
+      if (armorChoice == 4)
+      {
+
+
+
+      }
     }
     if (cityChoice == 3)
     {
 
+      system("cls");
+      std::cout << "\n\n";
+      std::cout << "The White Wolf's Blacksmithery.\n";
+      std::cout << "\n";
+      std::cout << "1. Swords.\n";
+      std::cout << "2. Axes.\n";
+      std::cout << "3. Maces.\n";
+      std::cout << "4. Back\n";
+      std::cout << "\n\n";
 
+      std::cin >> weaponChoice;
 
     }
     if (cityChoice == 4)
-    {  
+    {
 
         std::cout << "\nYou exit the City of Solidan.";
         Sleep(1250);
