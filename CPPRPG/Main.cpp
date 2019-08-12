@@ -1,5 +1,6 @@
 #include "Header.h"
 #include "Character.h"
+#include "Weapons.h"
 
 // cd "d:\CPP\txtAdv\CPPRPG\CPPRPG\" && g++ -std=c++11 Main.cpp Character.cpp -o Main && "d:\CPP\txtAdv\CPPRPG\CPPRPG\Main"
 
