@@ -469,7 +469,7 @@ void City()
     }
     if (cityChoice == 2)
     {
-      
+
       system("cls");
       std::cout << "\n\n";
       std::cout << "The Black Sheep's Blacksmithery.\n";
@@ -512,7 +512,7 @@ void City()
       if (armorChoice == 4)
       {
 
-
+        HUDcity();
 
       }
     }
@@ -530,6 +530,31 @@ void City()
       std::cout << "\n\n";
 
       std::cin >> weaponChoice;
+
+      if (weaponChoice == 1)
+      {
+
+
+
+      }
+      if (weaponChoice == 2)
+      {
+
+
+
+      }
+      if (weaponChoice == 3)
+      {
+
+
+
+      }
+      if (weaponChoice == 4)
+      {
+
+        HUDcity();
+
+      }
 
     }
     if (cityChoice == 4)
