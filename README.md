@@ -13,4 +13,7 @@
   2. <i>Character Creation (Name, Race & Sex)</i>
   3. <i>Combat System (Basic Attacking, Magical Spells, Blocking...)</i>
   4. <i>Random Monster & Treasure events.</i>
-  5. <i>A City, with Weapon & Armor Shops (Not Finished yet.)</i>
+  
+  + <i>A City with Weapon & Armor Blacksmiths (Not Working)</i>
+  + <i>Death System</i> (Not Working Properly)</i>
+  
