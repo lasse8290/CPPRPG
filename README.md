@@ -16,4 +16,5 @@
   
   + <i>A City with Weapon & Armor Blacksmiths (Not Working)</i>
   + <i>Death System (Not Working Properly)</i>
+  + <i>Equipment System, Weapons & Armors. (Currently Working On)</i>
   
