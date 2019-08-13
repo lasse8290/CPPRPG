@@ -457,7 +457,7 @@ void City()
 
     if (cityChoice == 1)
     {
-        //Rest.
+        //Resting mechanic, heals max for 99 HP and 50 mp.
         std::cout << "You find a hostel, and rest for the evening.\n";
         if(character.totalHealth <= 99)
         {
@@ -494,7 +494,10 @@ void City()
 
       if (armorChoice == 1)
       {
-        //Armor Shop.
+        //Armor Shop
+
+        int armBuyChoice;
+
         system("cls");
         std::cout << "\n\n";
         std::cout << "The Black Sheep's Blacksmithery.\n";
@@ -504,24 +507,40 @@ void City()
         std::cout << "3 Back.";
         std::cout << "\n\n";
 
-        std::cin >> armorChoice;
+        std::cin >> armBuyChoice;
+
+        if (armBuyChoice == 1)
+        {
+          //Chestplates
+
+
+        }
+        if (armBuyChoice == 2)
+        {
+          //Shields
+
+
+        }
+        if (armBuyChoice == 3)
+        {
+          //Back
+          HUDcity();
 
       }
       if (armorChoice == 2)
       {
-
-
+        //Enchant
 
       }
-      if (armorChoice == 3)
+      if armorChoice == 3)
       {
-
+        //Repair
 
 
       }
       if (armorChoice == 4)
       {
-
+        //Back
         HUDcity();
 
       }
@@ -543,25 +562,25 @@ void City()
 
       if (weaponChoice == 1)
       {
-
+        //Swords
 
 
       }
       if (weaponChoice == 2)
       {
-
+        //Axes
 
 
       }
       if (weaponChoice == 3)
       {
-
+        //Maces
 
 
       }
       if (weaponChoice == 4)
       {
-
+        //Back
         HUDcity();
 
       }
