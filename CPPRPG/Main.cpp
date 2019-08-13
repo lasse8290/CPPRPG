@@ -98,13 +98,7 @@ void Combat()
     int playerSpellDamage = 11 * character.level / 1.1;
     int monsterAttack = 6 * monsterLevel / 2;
 
-    if (character.totalHealth <= 0) {
-        character.totalHealth = 0;
-        system("cls");
-        std::cout << "You have been Slayed!\n\n" << character.race<< " " << character.name << " lvl" << character.level << ", was slain by a " << currentMonster << std::endl;
-        Sleep(5000);
-        exit(0);
-    } else if(character.totalHealth >= 1 && monsterHP > 1)
+    if(character.totalHealth >= 1 && monsterHP > 1)
     {
 
         std::cout << "\n";
@@ -117,7 +111,7 @@ void Combat()
 
         if(playerAttack == 1)
         {
-            //Attack
+            //Basic Attack
             std::cout << "Attacking... you dealt " << playerDamage << " Damage to the " << currentMonster << "." << std::endl;
             monsterHP = monsterHP - playerDamage;
             Sleep(2500);
@@ -186,7 +180,7 @@ void Combat()
         else if (playerAttack == 3)
         {
 
-            //Spells
+            //Spells.
             std::cout << "\n";
             std::cout << "8. Fireball - Cost 8 MP.\n";
             std::cout << "9. Heal Spell - Cost 5 MP.\n";
@@ -375,7 +369,7 @@ void Moving()
         }
         else if (temp > 50 && temp < 60)
         {
-
+            //Treasure Encounter
             CreateTreasure();
             std::cout << "You find A Treasure Box! \nInside of it is " << treasureXP << " XP and " << treasureGold << " Gold!\n" << std::endl;
             Sleep (2500);
@@ -383,7 +377,7 @@ void Moving()
         }
         else if (temp > 60 && temp < 70)
         {
-
+            //City Encounter
             std::cout << "You find the entrance to a City, and walk inside.\n";
             Sleep(1500);
             HUDcity();
@@ -409,6 +403,21 @@ void Moving()
             currentMonster = tempName;
             Sleep(2000);
             Combat();
+
+        } else if (temp > 50 && temp < 60)
+        {
+            //Treasure Encounter
+            CreateTreasure();
+            std::cout << "You find A Treasure Box! \nInside of it is " << treasureXP << " XP and " << treasureGold << " Gold!\n" << std::endl;
+            Sleep (2500);
+            HUD();
+        }
+        else if (temp > 60 && temp < 70)
+        {
+            //City Encounter
+            std::cout << "You find the entrance to a City, and walk inside.\n";
+            Sleep(1500);
+            HUDcity();
 
         }
 
@@ -448,7 +457,7 @@ void City()
 
     if (cityChoice == 1)
     {
-
+        //Rest.
         std::cout << "You find a hostel, and rest for the evening.\n";
         if(character.totalHealth <= 99)
         {
@@ -470,7 +479,7 @@ void City()
     }
     if (cityChoice == 2)
     {
-
+      //Armor Blacksmithery.
       system("cls");
       std::cout << "\n\n";
       std::cout << "The Black Sheep's Blacksmithery.\n";
@@ -485,7 +494,7 @@ void City()
 
       if (armorChoice == 1)
       {
-
+        //Armor Shop.
         system("cls");
         std::cout << "\n\n";
         std::cout << "The Black Sheep's Blacksmithery.\n";
@@ -519,7 +528,7 @@ void City()
     }
     if (cityChoice == 3)
     {
-
+      //Weapon Blacksmithery.
       system("cls");
       std::cout << "\n\n";
       std::cout << "The White Wolf's Blacksmithery.\n";
