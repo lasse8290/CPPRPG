@@ -1,8 +1,12 @@
 # CPPRPG
 
-A C++ Console-Based RPG, Developed by Sean O. Wiik, since 20-05-2019.
+<i>A C++ Console-Based RPG, Developed by Sean O. Wiik, since 20-05-2019.</i>
+
 
 ![screenshot](https://i.imgur.com/rAQWDy6.png)
+
+
+
 
 <b>Current features</b>:
   1. <i>Level System.</i>
