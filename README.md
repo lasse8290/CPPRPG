@@ -15,5 +15,5 @@
   4. <i>Random Monster & Treasure events.</i>
   
   + <i>A City with Weapon & Armor Blacksmiths (Not Working)</i>
-  + <i>Death System</i> (Not Working Properly)</i>
+  + <i>Death System (Not Working Properly)</i>
   
