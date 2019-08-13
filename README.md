@@ -2,7 +2,7 @@
 
 A C++ Console-Based RPG, Developed by Sean O. Wiik, since 20-05-2019.
 
-![screenshot](https://imgur.com/rAQWDy6)
+![screenshot](https://i.imgur.com/rAQWDy6.png)
 
 <b>Current features</b>:
   1. <i>Level System.</i>
