@@ -1,2 +1,3 @@
 - Name, Race and Scores of previous characters will be saved here, and will be used later for a score system.
         Name: c++. Race: robot. Sex: Male
+        Name: Favourite Meal is Spaghetti Code. Race: elf. Sex: Male
