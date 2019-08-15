@@ -10,8 +10,8 @@ class Weapons
 
       public:
           //Available weapon name.
-          Weapon(const std::string& name, int id)
-           : Item(name, id) { };
+          Weapon(const std::string& name, int id, std::string& description, int worth)
+           : Item(name, id, description, worth) { };
 
 
           //Weapon Stats.
