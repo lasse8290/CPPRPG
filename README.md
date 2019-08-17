@@ -16,5 +16,8 @@
   
   + <i>A City with Weapon & Armor Blacksmiths (Not Working)</i>
   + <i>Death System (Not Working Properly)</i>
-  + <i>Equipment System, Weapons & Armors. (Currently Working On)</i>
+  + <i>Equipment, Inventory, Items Weapons & Armors. (Currently Working On)</i>
   
+
+# Requirements
+- Mingw (g++ c++11)
