@@ -22,7 +22,6 @@ class Character
 
         void characterCreation();
         void updateStats();
-    private:
 
         Inventory inventory;
         Weapon* weapon;

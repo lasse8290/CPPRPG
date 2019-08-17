@@ -1,9 +1,8 @@
 #include "Character.h"
-#include "Weapon.h"
 
-// cd "d:\CPP\txtAdv\CPPRPG\CPPRPG\" && g++ -std=c++11 Main.cpp Character.cpp -o Main && "d:\CPP\txtAdv\CPPRPG\CPPRPG\Main"
+// cd "d:\CPP\txtAdv\CPPRPG\CPPRPG\" && g++ -std=c++11 Main.cpp Character.cpp Weapon.cpp Item.cpp Inventory.cpp -o Main && "d:\CPP\txtAdv\CPPRPG\CPPRPG\Main"
 
-void HUD2();
+void HUD();
 void HUDcity();
 void City();
 void Combat();
@@ -38,7 +37,7 @@ int main()
 
     character.characterCreation();
 
-    HUD2();
+    HUD();
     Moving();
 
     system("pause");
@@ -47,7 +46,7 @@ int main()
 
 }
 
-void HUD2()
+void HUD()
 {
     //Our HUD for Name, Health, Race, Sex, Level.
     Sleep(500);
@@ -140,7 +139,7 @@ void Combat()
                 }
 
                 Sleep(2000);
-                HUD2();
+                HUD();
 
             }
 
@@ -220,7 +219,7 @@ void Combat()
                         }
 
                         Sleep(2000);
-                        HUD2();
+                        HUD();
 
                     }
 
@@ -372,7 +371,7 @@ void Moving()
             CreateTreasure();
             std::cout << "You find A Treasure Box! \nInside of it is " << treasureXP << " XP and " << treasureGold << " Gold!\n" << std::endl;
             Sleep (2500);
-            HUD2();
+            HUD();
         }
         else if (temp > 60 && temp < 70)
         {
@@ -385,7 +384,7 @@ void Moving()
 
         std::cout << "You find nothing of interest.\n";
         Sleep(1500);
-        HUD2();
+        HUD();
 
     }
     else if(choice == 2)
@@ -409,7 +408,7 @@ void Moving()
             CreateTreasure();
             std::cout << "You find A Treasure Box! \nInside of it is " << treasureXP << " XP and " << treasureGold << " Gold!\n" << std::endl;
             Sleep (2500);
-            HUD2();
+            HUD();
         }
         else if (temp > 60 && temp < 70)
         {
@@ -422,7 +421,7 @@ void Moving()
 
         std::cout << "You find nothing of interest.\n";
         Sleep(1500);
-        HUD2();
+        HUD();
 
     }
     else
@@ -525,23 +524,23 @@ void City()
           //Back
           HUDcity();
 
-      }
-      if (armorChoice == 2)
-      {
-        //Enchant
+        }
+        if (armorChoice == 2)
+        {
+            //Enchant
 
-      }
-      if (armorChoice == 3)
-      {
-        //Repair
+        }
+        if (armorChoice == 3)
+        {
+            //Repair
 
 
-      }
-      if (armorChoice == 4)
-      {
-        //Back
-        HUDcity();
-
+        }
+        if (armorChoice == 4)
+        {
+            //Back
+            HUDcity();
+        }
       }
     }
     if (cityChoice == 3)
@@ -590,7 +589,7 @@ void City()
 
         std::cout << "\nYou exit the City of Solidan.";
         Sleep(1250);
-        HUD2();
+        HUD();
 
     }
 
@@ -627,7 +626,7 @@ void LevelUp()
     }
 
     Sleep(2000);
-    HUD2();
+    HUD();
 
 }
 
