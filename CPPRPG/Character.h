@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Header.h"
+#include "Inventory.h"
 
 class Character
 {
@@ -16,8 +17,14 @@ class Character
 
         //Basic stats.
         int health, totalHealth, maxHealth, heal, MP, healMP, totalMP, maxMP, playerGold;
-        int level, current_XP, base_XP, XP_to_level, minLevel, maxLevel;
+        int level, current_XP, base_XP, XP_to_level, minLevel, maxLevel, playerDamage, playerDamageMax, playerSpellDamage;
+        
 
         void characterCreation();
+        void updateStats();
+    private:
+
+        Inventory inventory;
+        Weapon* weapon;
 
 };

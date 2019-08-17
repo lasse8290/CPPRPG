@@ -50,6 +50,8 @@
         "unordered_map": "cpp",
         "functional": "cpp",
         "numeric": "cpp",
-        "sstream": "cpp"
-    }
+        "sstream": "cpp",
+        "ctime": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }

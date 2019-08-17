@@ -1,10 +1,9 @@
-#include "Header.h"
 #include "Character.h"
-#include "Weapons.h"
+#include "Weapon.h"
 
 // cd "d:\CPP\txtAdv\CPPRPG\CPPRPG\" && g++ -std=c++11 Main.cpp Character.cpp -o Main && "d:\CPP\txtAdv\CPPRPG\CPPRPG\Main"
 
-void HUD();
+void HUD2();
 void HUDcity();
 void City();
 void Combat();
@@ -39,7 +38,7 @@ int main()
 
     character.characterCreation();
 
-    HUD();
+    HUD2();
     Moving();
 
     system("pause");
@@ -48,7 +47,7 @@ int main()
 
 }
 
-void HUD()
+void HUD2()
 {
     //Our HUD for Name, Health, Race, Sex, Level.
     Sleep(500);
@@ -89,14 +88,13 @@ void Animation()
 
 void Combat()
 {
-
+    character.updateStats();
     CombatHUD();
     Animation();
     int playerAttack;
     int playerSpell;
-    int playerDamage = 8 * character.level / 2;
-    int playerSpellDamage = 11 * character.level / 1.1;
     int monsterAttack = 6 * monsterLevel / 2;
+
 
     if(character.totalHealth >= 1 && monsterHP > 1)
     {
@@ -112,8 +110,9 @@ void Combat()
         if(playerAttack == 1)
         {
             //Basic Attack
-            std::cout << "Attacking... you dealt " << playerDamage << " Damage to the " << currentMonster << "." << std::endl;
-            monsterHP = monsterHP - playerDamage;
+            
+            std::cout << "Attacking... you dealt " << character.playerDamage << " Damage to the " << currentMonster << "." << std::endl;
+            monsterHP = monsterHP - character.playerDamage;
             Sleep(2500);
             CombatHUD();
             if (monsterHP >= 1)
@@ -141,7 +140,7 @@ void Combat()
                 }
 
                 Sleep(2000);
-                HUD();
+                HUD2();
 
             }
 
@@ -193,8 +192,8 @@ void Combat()
                 {
                     std::cout << "You cast a Fireball!\n";
                     character.totalMP -= 8;
-                    std::cout << "Attacking... you dealt " << playerSpellDamage << " Fire Damage.\n" << std::endl;
-                    monsterHP = monsterHP - playerSpellDamage;
+                    std::cout << "Attacking... you dealt " << character.playerSpellDamage << " Fire Damage.\n" << std::endl;
+                    monsterHP = monsterHP - character.playerSpellDamage;
                     Sleep(3000);
                     CombatHUD();
                     if (monsterHP >= 1)
@@ -221,7 +220,7 @@ void Combat()
                         }
 
                         Sleep(2000);
-                        HUD();
+                        HUD2();
 
                     }
 
@@ -373,7 +372,7 @@ void Moving()
             CreateTreasure();
             std::cout << "You find A Treasure Box! \nInside of it is " << treasureXP << " XP and " << treasureGold << " Gold!\n" << std::endl;
             Sleep (2500);
-            HUD();
+            HUD2();
         }
         else if (temp > 60 && temp < 70)
         {
@@ -386,7 +385,7 @@ void Moving()
 
         std::cout << "You find nothing of interest.\n";
         Sleep(1500);
-        HUD();
+        HUD2();
 
     }
     else if(choice == 2)
@@ -410,7 +409,7 @@ void Moving()
             CreateTreasure();
             std::cout << "You find A Treasure Box! \nInside of it is " << treasureXP << " XP and " << treasureGold << " Gold!\n" << std::endl;
             Sleep (2500);
-            HUD();
+            HUD2();
         }
         else if (temp > 60 && temp < 70)
         {
@@ -423,7 +422,7 @@ void Moving()
 
         std::cout << "You find nothing of interest.\n";
         Sleep(1500);
-        HUD();
+        HUD2();
 
     }
     else
@@ -532,7 +531,7 @@ void City()
         //Enchant
 
       }
-      if armorChoice == 3)
+      if (armorChoice == 3)
       {
         //Repair
 
@@ -591,7 +590,7 @@ void City()
 
         std::cout << "\nYou exit the City of Solidan.";
         Sleep(1250);
-        HUD();
+        HUD2();
 
     }
 
@@ -628,7 +627,7 @@ void LevelUp()
     }
 
     Sleep(2000);
-    HUD();
+    HUD2();
 
 }
 
@@ -659,9 +658,13 @@ void CreateMonster()
     monsterGold = monsterHP - 5;
 
     if(monsterHP == 0)
+    {
         CreateMonster();
+    }
     if(monsterLevel == 0)
+    {
         CreateMonster();
+    }
 
 
 }

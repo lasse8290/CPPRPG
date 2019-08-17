@@ -9,9 +9,17 @@ Character::Character()
     playerRace = { "elf", "dwarf", "human", "ancient", "golem", "goblin" };
     playerName = { "guts", "saitama", "mikkel" };
 
+    weapon = nullptr;
+
     level = 0, health = 0, totalHealth = 0, maxHealth = 0, heal = 0, MP = 0, healMP = 0, totalMP = 0, maxMP = 0, playerGold = 0;
 
     level = 1, current_XP = 0, base_XP = 83, XP_to_level = base_XP, minLevel = 1, maxLevel = 60;
+
+    playerDamage = 8 * level / 2;
+
+    playerDamageMax = 8 * level / 2 + level;
+    
+    playerSpellDamage = 11 * level / 1.1;
 
 }
 
@@ -210,5 +218,18 @@ void Character::characterCreation()
     maxHealth = totalHealth;
     totalMP = MP;
     maxMP = totalMP;
+
+}
+
+void Character::updateStats()
+{
+
+    if(this->weapon)
+    {
+
+        this->playerDamage += this->weapon->getDamageMin();
+        this->playerDamageMax += this->weapon->getDamageMax();
+
+    }
 
 }
