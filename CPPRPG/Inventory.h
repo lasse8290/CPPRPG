@@ -7,35 +7,26 @@
 class Inventory
 {
 private:
-    Item **items;
-    unsigned cap;
-    unsigned nrOfItems;
-
-    //Private Functions
-    void initialize(const unsigned from = 0);
-    void expand();
+	int cap;
+	int nrOfItems;
+	Item **itemArr;
+	void expand();
+	void initialize(const int from = 0);
 
 public:
-    //Constructors / Destructors
-    Inventory(unsigned cap = 10);
-    Inventory(const Inventory& other);
-    virtual ~Inventory();
-
-    //Operators
-    void operator = (const Inventory& other);
-    Item& operator [] (const unsigned index);
-
-    //Accessors
-    const unsigned& size() const;
-    const unsigned& capacity() const;
-    Item& at(const unsigned index);
-
-    //Modifiers
-
-    //Functions
-    void add(const Item& item);
-    void remove(const unsigned index);
-    std::string toString() const;
-
-
+	Inventory();
+	~Inventory();
+	Inventory(const Inventory &obj);
+	inline int size()const { return this->nrOfItems; };
+	Item& operator[](const int index);
+	void operator=(const Inventory &obj);
+	void addItem(const Item &item);
+	void removeItem(int index);
+    inline void debugPrint() const
+	{
+		for (size_t i = 0; i < this->nrOfItems; i++)
+		{
+			std::cout << this->itemArr[i]->debugPrint() << std::endl;
+		}
+	}
 };

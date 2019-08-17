@@ -1,29 +1,43 @@
-#pragma once
-
+#include "Header.h"
 #include "Item.h"
 
-class Weapon : 
-    public Item
+class Weapon :
+	public Item
 {
 private:
-    int playerDamage;
-    int playerDamageMax;
+	int playerDamage;
+	int playerDamageMax;
 
 public:
-    Weapon(
-        int playerDamage,
-        int playerDamageMax,
-        std::string name,
-        unsigned type,
-        unsigned rarity,
-        unsigned value);
-    virtual ~Weapon();
+	Weapon();
+	Weapon(
+		int level, 
+		int rarity
+	);
+	Weapon(
+		int damageMin, 
+		int damageMax,
+		std::string name, 
+		int level, 
+		int buyValue, 
+		int sellValue, 
+		int rarity);
+	virtual ~Weapon();
 
-    //Accessors
+	//Pure virtual
+	virtual Weapon* clone()const;
 
-    inline const int& getDamageMin() const { return this->playerDamage; }
-    inline const int& getDamageMax() const { return this->playerDamageMax; }
+	//Functions
+	std::string toString()const;
+	std::string toStringSave()const;
 
-    //Modifiers
+	//Accessors
+	inline int getDamageMin()const { return this->playerDamage; }
+	inline int getDamageMax()const { return this->playerDamageMax; }
 
+	//Modifiers
+
+	//Static
+	static dArr<std::string> names;
+	static void initNames();
 };
