@@ -7,5 +7,5 @@
 #include <algorithm>
 #include <vector>
 #include <ctime>
-
+#include <math.h>
 #include "dArr.h"
