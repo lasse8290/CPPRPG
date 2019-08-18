@@ -1,0 +1,72 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Character.cpp
+Character.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Character.h
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Character.h
+Header.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Header.h
+Inventory.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Inventory.h
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Header.h
+iostream
+-
+fstream
+-
+windows.h
+-
+string
+-
+algorithm
+-
+vector
+-
+ctime
+-
+math.h
+-
+dArr.h
+E:/Git-Clones/Sean Spagt/CPPRPG/dArr.h
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Inventory.cpp
+Inventory.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Inventory.h
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Inventory.h
+Weapon.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Weapon.h
+sstream
+-
+string
+-
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Item.h
+string
+-
+sstream
+-
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Main.cpp
+Character.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Character.h
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Weapon.cpp
+Weapon.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Weapon.h
+
+E:/Git-Clones/Sean Spagt/CPPRPG/Weapon.h
+Header.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Header.h
+Item.h
+E:/Git-Clones/Sean Spagt/CPPRPG/Item.h
+
+E:/Git-Clones/Sean Spagt/CPPRPG/dArr.h
+

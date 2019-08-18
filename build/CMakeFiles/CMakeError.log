@@ -1,0 +1,22 @@
+Determining if the C compiler works failed with the following output:
+Change Dir: E:/Git-Clones/Sean Spagt/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/WinAVR-20100110/utils/bin/make.exe cmTC_0583e/fast && C:/WinAVR-20100110/utils/bin/make.exe -f CMakeFiles/cmTC_0583e.dir/build.make CMakeFiles/cmTC_0583e.dir/build
+make.exe[1]: Entering directory `E:/Git-Clones/Sean Spagt/build/CMakeFiles/CMakeTmp'
+make.exe[1]: *** [CMakeFiles/cmTC_0583e.dir/testCCompiler.c.obj] Error -1073741502
+make.exe[1]: Leaving directory `E:/Git-Clones/Sean Spagt/build/CMakeFiles/CMakeTmp'
+make.exe: *** [cmTC_0583e/fast] Error 2
+
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: E:/Git-Clones/Sean Spagt/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/WinAVR-20100110/utils/bin/make.exe cmTC_17186/fast && C:/WinAVR-20100110/utils/bin/make.exe -f CMakeFiles/cmTC_17186.dir/build.make CMakeFiles/cmTC_17186.dir/build
+make.exe[1]: Entering directory `E:/Git-Clones/Sean Spagt/build/CMakeFiles/CMakeTmp'
+make.exe[1]: *** [CMakeFiles/cmTC_17186.dir/testCCompiler.c.obj] Error -1073741502
+make.exe[1]: Leaving directory `E:/Git-Clones/Sean Spagt/build/CMakeFiles/CMakeTmp'
+make.exe: *** [cmTC_17186/fast] Error 2
+
+
+

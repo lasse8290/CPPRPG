@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.0)
+
+set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Builds/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Builds/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/Builds/bin)
+
+project(testProject)
+
+add_executable(
+	testProject
+	${PROJECT_SOURCE_DIR}/CPPRPG/Main.cpp
+	${PROJECT_SOURCE_DIR}/CPPRPG/Character.cpp
+	${PROJECT_SOURCE_DIR}/CPPRPG/Inventory.cpp
+	${PROJECT_SOURCE_DIR}/CPPRPG/Item.cpp
+	${PROJECT_SOURCE_DIR}/CPPRPG/Weapon.cpp
+)
+
